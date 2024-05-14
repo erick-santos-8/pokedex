@@ -1,3 +1,4 @@
+import { Box, Button, Flex, Heading, Image, Text } from '@chakra-ui/react';
 import { useEffect, useState } from 'react'
 
 const PokemonCard = ({name}) => {
@@ -21,14 +22,22 @@ const PokemonCard = ({name}) => {
       })
   }, [])
   return (
-    <div>
-        <h3>{name}</h3>
-        {types.length >0 && <p>{types[0].type.name}</p>}
-        {types.length >1 && <p>{types[1].type.name}</p>}
-        <img src={photoUrl} alt={name} />
-        <p>{number}</p>
-        
-    </div>
+    <Box bg="#D62B1C" h="350px" w="300px" mb="2rem" border="1px solid black" borderRadius=".5rem">
+      <Box  alignContent="top" alignItems="center" display="flex" flexDirection="column" padding="1rem" bg="white" borderBottom="3px solid" borderTopRadius=".5rem">
+        <Image src={photoUrl} alt={name} objectFit="cover" maxBlockSize="200px"/>
+      </Box>
+      <Flex justifyContent="space-between" marginTop="none" pt="none" mx="1rem" maxH="50px">
+        <Heading as="h2">{name}</Heading>
+        <Text fontStyle="italic" fontSize="15px">#{number}</Text>
+      </Flex>
+      <Flex justifyContent="space-between" mx="1rem" px="2rem">
+        {types.length >0 && <Text fontWeight="bold">{types[0].type.name}</Text>}
+        {types.length >1 && <Text fontWeight="bold">{types[1].type.name}</Text>}
+      </Flex>
+      <Box display="flex"justifyContent="center" cursor="pointer">
+        <Button>Details</Button>
+      </Box>        
+    </Box>
   )
 }
 

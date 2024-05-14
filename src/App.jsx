@@ -1,15 +1,15 @@
 
 import { Outlet } from 'react-router-dom'
 import './App.css'
+import { Box, Text } from '@chakra-ui/react'
 
 function App() {
 
   return (
-    <div>
-      <h2>Navbar</h2>
+    <Box>
+      <Text fontSize="16px">NavBar</Text>
       <Outlet/>
-      <h2>Footer</h2>
-    </div>
+    </Box>
   )
 }
 
