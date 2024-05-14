@@ -18,9 +18,10 @@ const PokemonCard = ({name}) => {
   }, [])
   return (
     <div>
-        <h5>{name}</h5>
-        {console.log(name, types[0])}
-        <p>Tipos: {types.map((details) => {return details.type.name})}</p>
+        <h3>{name}</h3>
+        {types.length >0 && <p>{types[0].type.name}</p>}
+        {types.length >1 && <p>{types[1].type.name}</p>}
+        
     </div>
   )
 }
