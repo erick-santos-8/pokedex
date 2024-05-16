@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import PokemonCard from '../components/PokemonCard';
-import { Box, Flex, Heading, Wrap } from '@chakra-ui/react';
+import { Box, Heading, Wrap } from '@chakra-ui/react';
 
 
 
@@ -14,7 +14,7 @@ const Home = () => {
     };
 
     useEffect(()=>{
-        getFirstPokemons("https://pokeapi.co/api/v2/pokemon?limit=10&offset=0");
+        getFirstPokemons("https://pokeapi.co/api/v2/pokemon?limit=5&offset=0");
     }, [])
   return (
     <Box bg="#fff">

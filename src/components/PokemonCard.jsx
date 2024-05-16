@@ -23,6 +23,27 @@ const typeColor = {
   "water": ["#0e53e3", "white"]
 }
 
+const bgCardColor = {
+  "bug": "#86B339",
+  "fire": "#F06E4F",
+  "normal":"#947062",
+  "dark": "#7A70FF",
+  "flying": "#7C8BCF",
+  "poison": "#C345D6",
+  "dragon": "#4A8EB0",
+  "ghost": "#8B62D9",
+  "psychic": "#D65336",
+  "electric": "#E3B62B",
+  "grass": "#13909C",
+  "rock": "#AD7110",
+  "fairy": "#CF5127",
+  "ground": "#A38F2F",
+  "steel": "#728B94",
+  "fighting": "#B87A25",
+  "ice": "#82AEF5",
+  "water": "#5985E3"
+}
+
 const PokemonCard = ({name}) => {
   const [types, setTypes] = useState([])
   const [photoUrl, setPhotoUrl] = useState("")
@@ -44,18 +65,18 @@ const PokemonCard = ({name}) => {
       })
   }, [])
   return (
-    <Box bg="#D62B1C" h="350px" w="300px" mb="2rem" border="1px solid black" borderRadius=".5rem" p="none">
+    <Box bg="lightblue" h="300px" w="300px" mb="2rem" border="1px solid black" borderRadius=".5rem" p="none">
       <Flex justifyContent="space-between" marginTop="none" p="none" mx="1rem" maxH="35px" alignItems="center">
         <Heading as="h2">{name}</Heading>
         <Text fontStyle="italic" fontSize="15px">#{number}</Text>
       </Flex>
-      <Box  alignContent="top" alignItems="center" display="flex" flexDirection="column" padding="1rem" bg="white" borderBottom="3px solid">
+      <Box  alignContent="top" alignItems="center" display="flex" flexDirection="column" padding=".5rem" mx="1rem" bg="white" borderBottom="3px solid">
         <Image src={photoUrl} alt={name} objectFit="contain" maxBlockSize="150px"/>
       </Box>
       
       <Flex justifyContent="space-between" mx="1rem" px="2rem" mb="none" h="50px">
-        {types.length >0 && <Text fontWeight="bold" h="2rem" bg={typeColor[types[0].type.name][0]} color={typeColor[types[0].type.name][1]} borderRadius=".5rem" h="22px" bgSize="contain" px=".5rem">{types[0].type.name}</Text>}
-        {types.length >1 && <Text fontWeight="bold" h="2rem" bg={typeColor[types[1].type.name][0]} color={typeColor[types[1].type.name][1]} borderRadius=".5rem" h="22px" bgSize="contain" px=".5rem">{types[1].type.name}</Text>}
+        {types.length >0 && <Text fontWeight="bold" h="2rem" bg={typeColor[types[0].type.name][0]} color={typeColor[types[0].type.name][1]} borderRadius=".5rem" height="22px" px=".5rem">{types[0].type.name}</Text>}
+        {types.length >1 && <Text fontWeight="bold" h="2rem" bg={typeColor[types[1].type.name][0]} color={typeColor[types[1].type.name][1]} borderRadius=".5rem" height="22px" px=".5rem">{types[1].type.name}</Text>}
       </Flex>
       <Box display="flex"justifyContent="center" cursor="pointer" mt="none">
         <Button bg="transparent" border="1px solid white" borderRadius=".5rem" h="2.5rem" cursor="pointer" fontWeight="bold"  rightIcon={<FaInfoCircle/>}>More Details</Button>
