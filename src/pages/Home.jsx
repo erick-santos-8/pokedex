@@ -14,12 +14,12 @@ const Home = () => {
     };
 
     useEffect(()=>{
-        getFirstPokemons("https://pokeapi.co/api/v2/pokemon?limit=5&offset=0");
+        getFirstPokemons("https://pokeapi.co/api/v2/pokemon?limit=20&offset=0");
     }, [])
   return (
     <Box bg="#fff">
       <Heading bg="#f6f6f6">Pokemons</Heading>
-        <Wrap bg="#f6f6f6" padding="2rem" borderRadius=".5rem">
+        <Wrap bg="#f6f6f6" padding="2rem" borderRadius=".5rem" display="flex" alignItems="center">
           {firstPokemons.length === 0 && <p>Carregando...</p>}
           {firstPokemons.length > 0 && firstPokemons.map((nameAndUrl) => <PokemonCard key={nameAndUrl.name} name={nameAndUrl.name}/>)}
         </Wrap>

@@ -49,38 +49,47 @@ const PokemonCard = ({name}) => {
   const [photoUrl, setPhotoUrl] = useState("")
   const [number, setNumber]=useState(0);
 
+  const getDetails = async(url) => {
+    const res = await fetch(url);
+    const data = await res.json();
+    setTypes(data.types)
+    setPhotoUrl(data.sprites.other.dream_world.front_default)
+    setNumber(data.id)
+  }
   useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
-      .then((res)=> {
-        if(!res.ok){
-          throw new Error("Erro ao conectar com a API");
-        }
-        return res.json()
-      }).then((data)=>{
-        setTypes(data.types)
-        setPhotoUrl(data.sprites.other.dream_world.front_default)
-        setNumber(data.id)
-      }).catch((error)=>{
-        console.error("Erro detalhe do pokemon",error.message);
-      })
+    // fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+    //   .then((res)=> {
+    //     if(!res.ok){
+    //       throw new Error("Erro ao conectar com a API");
+    //     }
+    //     return res.json()
+    //   }).then((data)=>{
+    //     setTypes(data.types)
+    //     setPhotoUrl(data.sprites.other.dream_world.front_default)
+    //     setNumber(data.id)
+    //   }).catch((error)=>{
+    //     console.error("Erro detalhe do pokemon",error.message);
+    //   })
+    getDetails(`https://pokeapi.co/api/v2/pokemon/${name}`)
   }, [])
+
+
   return (
-    <Box bg="lightblue" h="300px" w="300px" mb="2rem" border="1px solid black" borderRadius=".5rem" p="none">
-      <Flex justifyContent="space-between" marginTop="none" p="none" mx="1rem" maxH="35px" alignItems="center">
-        <Heading as="h2">{name}</Heading>
-        <Text fontStyle="italic" fontSize="15px">#{number}</Text>
-      </Flex>
-      <Box  alignContent="top" alignItems="center" display="flex" flexDirection="column" padding=".5rem" mx="1rem" bg="white" borderBottom="3px solid">
-        <Image src={photoUrl} alt={name} objectFit="contain" maxBlockSize="150px"/>
-      </Box>
-      
-      <Flex justifyContent="space-between" mx="1rem" px="2rem" mb="none" h="50px">
-        {types.length >0 && <Text fontWeight="bold" h="2rem" bg={typeColor[types[0].type.name][0]} color={typeColor[types[0].type.name][1]} borderRadius=".5rem" height="22px" px=".5rem">{types[0].type.name}</Text>}
-        {types.length >1 && <Text fontWeight="bold" h="2rem" bg={typeColor[types[1].type.name][0]} color={typeColor[types[1].type.name][1]} borderRadius=".5rem" height="22px" px=".5rem">{types[1].type.name}</Text>}
-      </Flex>
-      <Box display="flex"justifyContent="center" cursor="pointer" mt="none">
-        <Button bg="transparent" border="1px solid white" borderRadius=".5rem" h="2.5rem" cursor="pointer" fontWeight="bold"  rightIcon={<FaInfoCircle/>}>More Details</Button>
-      </Box>        
+    <Box  h="250px" w="250px" mb="2rem" border="1px solid black" borderRadius=".5rem" >
+      <Box as='button' cursor="pointer" w="250px" h="250px" borderRadius=".5rem" border="none" bg={types[0] && bgCardColor[types[0].type.name] }>
+        <Flex justifyContent="space-between" px="1rem" h="35px" borderTopRadius=".5rem" alignItems="center">
+          <Heading as="h2">{name}</Heading>
+          <Text fontStyle="italic" fontSize="15px" bg="rgba(255, 255, 255, 0.5)" p="3px" borderRadius="100rem">#{number}</Text>
+        </Flex>
+        <Box  h="150px" alignContent="top" alignItems="center" display="flex" flexDirection="column" padding=".5rem" mx="1rem"  bg="#fff" borderTopRadius=".5rem" borderBottom="2px solid black">
+          <Image src={photoUrl} alt={name} objectFit="contain" maxBlockSize="100%"/>
+        </Box>
+        
+        <Flex justifyContent="space-around" mx="1rem" maxH="40px" px="2rem"  alignItems="center" backgroundColor="rgba(255, 255, 255, 0.5)" borderBottomRadius=".5rem">
+          {types.length >0 && <Text fontWeight="bold" h="2rem" bg={typeColor[types[0].type.name][0]} color={typeColor[types[0].type.name][1]} borderRadius=".5rem" height="22px" px=".5rem" display="flex" alignItems="center">{types[0].type.name}</Text>}
+          {types.length >1 && <Text fontWeight="bold" h="2rem" bg={typeColor[types[1].type.name][0]} color={typeColor[types[1].type.name][1]} borderRadius=".5rem" height="22px" px=".5rem" display="flex" alignItems="center">{types[1].type.name}</Text>}
+        </Flex>
+      </Box>         
     </Box>
   )
 }
