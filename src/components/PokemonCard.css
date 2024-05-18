@@ -1,0 +1,67 @@
+.button-card{
+    cursor: pointer;
+    width: 180px;
+    height: 235px;
+    border-radius: .5rem;
+    border: none;
+    background-color: transparent;
+
+}
+
+.-hover{
+    background-color: white;
+}
+.bug-hover:hover{
+    background-color: #86B339;
+}
+.fire-hover:hover{
+    background-color: #F06E4F;
+}
+.normal-hover:hover{
+    background-color: #947062;
+}
+.dark-hover:hover{
+    background-color: #7A70FF;
+}
+.flying-hover:hover{
+    background-color: #7C8BCF;
+}
+.poison-hover:hover{
+    background-color: #C345D6;
+}
+.dragon-hover:hover{
+    background-color: #4A8EB0;
+}
+.ghost-hover:hover{
+    background-color: #8B62D9;
+}
+.psychic-hover:hover{
+    background-color: #D65336;
+}
+.electric-hover:hover{
+    background-color: #E3B62B;
+}
+.grass-hover:hover{
+    background-color: #13909C;
+}
+.rock-hover:hover{
+    background-color: #AD7110;
+}
+.fairy-hover:hover{
+    background-color: #CF5127;
+}
+.ground-hover:hover{
+    background-color: #A38F2F;
+}
+.steel-hover:hover{
+    background-color: #728B94;
+}
+.fighting-hover:hover{
+    background-color: #B87A25;
+}
+.ice-hover:hover{
+    background-color: #82AEF5;
+}
+.water-hover:hover{
+    background-color: #5985E3;
+}
