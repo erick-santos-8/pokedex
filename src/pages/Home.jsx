@@ -14,7 +14,7 @@ const Home = () => {
     };
 
     useEffect(()=>{
-        getFirstPokemons("https://pokeapi.co/api/v2/pokemon?limit=20&offset=0");
+        getFirstPokemons("https://pokeapi.co/api/v2/pokemon?limit=40&offset=0");
     }, [])
   return (
     <Box bg="#fff">

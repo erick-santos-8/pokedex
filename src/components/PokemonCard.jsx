@@ -37,6 +37,13 @@ const PokemonCard = ({name}) => {
     setPhotoUrl(data.sprites.other.dream_world.front_default)
     setNumber(data.id)
   }
+
+  function upperCaseFirstLetter(stringName){
+    if(!stringName){
+      return "";
+    }
+    return stringName[0].toUpperCase() + stringName.substr(1);
+  }
   useEffect(() => {
     // fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
     //   .then((res)=> {
@@ -73,7 +80,7 @@ const PokemonCard = ({name}) => {
         </Box>
 
         <Flex justifyContent="space-between" h="35px" borderTopRadius=".5rem" alignItems="center">
-          <Heading as="h2">{name}</Heading>
+          <Heading as="h2">{upperCaseFirstLetter(name)}</Heading>
           <Text fontStyle="italic" fontSize="15px" p="3px" borderRadius="100rem">#{number}</Text>
         </Flex>
         

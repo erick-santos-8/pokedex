@@ -5,8 +5,8 @@
     border-radius: .5rem;
     border: none;
     background-color: transparent;
+    transition: .3s;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
 }
 
 .-hover{
