@@ -57,9 +57,9 @@ const PokemonCard = ({name}) => {
 
 
   return (
-    <Box  h="235px" w="180px" mb="2rem" border="1px solid black" borderRadius=".5rem" bg="#fff">
+    <Box  h="235px" w="180px" mb="2rem" borderRadius=".5rem" bg="#fff">
       <button className={`button-card ${types[0] && types[0].type.name }-hover`}>
-        <Box  h="150px" w="150px" alignContent="top" alignItems="center" display="flex" flexDirection="column" padding=".5rem"  bg="#fff" borderRadius=".5rem">
+        <Box  h="150px" w="150px" alignContent="top" alignItems="center" display="flex" flexDirection="column" padding=".55rem"  bg="#fff" borderRadius=".5rem">
           <Image src={photoUrl} alt={name} w="100%" maxBlockSize="100%"/>
         </Box>
 
@@ -69,8 +69,8 @@ const PokemonCard = ({name}) => {
         </Flex>
         
         <Flex justifyContent="space-around" mx="1rem" maxH="25px" alignItems="center">
-          {types.length >0 && <Text fontWeight="bold" h="2rem" bg={typeColor[types[0].type.name][0]} color={typeColor[types[0].type.name][1]} borderRadius=".5rem" height="22px" px=".5rem" display="flex" alignItems="center">{types[0].type.name}</Text>}
-          {types.length >1 && <Text fontWeight="bold" h="2rem" bg={typeColor[types[1].type.name][0]} color={typeColor[types[1].type.name][1]} borderRadius=".5rem" height="22px" px=".5rem" display="flex" alignItems="center">{types[1].type.name}</Text>}
+          {types.length >0 && <Text fontWeight="bold" h="2rem" bg={typeColor[types[0].type.name][0]} color={typeColor[types[0].type.name][1]} boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px" borderRadius=".5rem" height="22px" px=".5rem" display="flex" alignItems="center">{types[0].type.name}</Text>}
+          {types.length >1 && <Text fontWeight="bold" h="2rem" bg={typeColor[types[1].type.name][0]} color={typeColor[types[1].type.name][1]} boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px" borderRadius=".5rem" height="22px" px=".5rem" display="flex" alignItems="center">{types[1].type.name}</Text>}
         </Flex>
       </button>         
     </Box>
