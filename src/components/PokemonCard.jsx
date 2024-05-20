@@ -1,5 +1,4 @@
-import { Box, Button, Flex, Heading, Image, Text } from '@chakra-ui/react';
-import { FaInfoCircle } from 'react-icons/fa';
+import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react';
 import { useEffect, useState } from 'react'
 
 import "./PokemonCard.css"
@@ -55,6 +54,16 @@ const PokemonCard = ({name}) => {
     getDetails(`https://pokeapi.co/api/v2/pokemon/${name}`)
   }, [name])
 
+  const typeStyle = {
+    fontWeight: "bold",
+    h: "2rem",
+    boxShadow:"rgba(0, 0, 0, 0.24) 0px 3px 8px",
+    borderRadius:".5rem",
+    height:"22px", 
+    px:".5rem", 
+    display:"flex", 
+    alignItems:"center",
+  }
 
   return (
     <Box  h="235px" w="180px" mb="2rem" borderRadius=".5rem" bg="#fff">
@@ -69,8 +78,8 @@ const PokemonCard = ({name}) => {
         </Flex>
         
         <Flex justifyContent="space-around" mx="1rem" maxH="25px" alignItems="center">
-          {types.length >0 && <Text fontWeight="bold" h="2rem" bg={typeColor[types[0].type.name][0]} color={typeColor[types[0].type.name][1]} boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px" borderRadius=".5rem" height="22px" px=".5rem" display="flex" alignItems="center">{types[0].type.name}</Text>}
-          {types.length >1 && <Text fontWeight="bold" h="2rem" bg={typeColor[types[1].type.name][0]} color={typeColor[types[1].type.name][1]} boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px" borderRadius=".5rem" height="22px" px=".5rem" display="flex" alignItems="center">{types[1].type.name}</Text>}
+          {types.length >0 && <Text sx={typeStyle} bg={typeColor[types[0].type.name][0]} color={typeColor[types[0].type.name][1]} >{types[0].type.name}</Text>}
+          {types.length >1 && <Text sx={typeStyle} bg={typeColor[types[1].type.name][0]} color={typeColor[types[1].type.name][1]}>{types[1].type.name}</Text>}
         </Flex>
       </button>         
     </Box>
