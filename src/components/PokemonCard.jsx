@@ -63,28 +63,30 @@ const PokemonCard = ({name}) => {
 
   const typeStyle = {
     fontWeight: "bold",
-    h: "2rem",
+    fontSize: "14px",
+    h: "3rem",
     boxShadow:"rgba(0, 0, 0, 0.24) 0px 3px 8px",
     borderRadius:".5rem",
     height:"22px", 
-    px:".5rem", 
+    px:".5rem",
+    py: ".3rem", 
     display:"flex", 
     alignItems:"center",
   }
 
   return (
-    <Box  h="235px" w="180px" mb="2rem" borderRadius=".5rem" bg="#fff">
+    <Box  h="215px" w="180px" mb="2rem" borderRadius=".5rem" bg="#fff">
       <button className={`button-card ${types[0] && types[0].type.name }-hover`}>
-        <Box  h="150px" w="150px" alignContent="top" alignItems="center" display="flex" flexDirection="column" padding=".55rem"  bg="#fff" borderRadius=".5rem">
+        <Box  h="150px" w="180px" alignContent="baseline" alignItems="baseline" display="flex" flexDirection="column" padding=".55rem"  bg="#fff" borderTopRadius=".5rem">
           <Image src={photoUrl} alt={name} w="100%" maxBlockSize="100%"/>
         </Box>
 
-        <Flex justifyContent="space-between" h="35px" borderTopRadius=".5rem" alignItems="center">
-          <Heading as="h2">{upperCaseFirstLetter(name)}</Heading>
-          <Text fontStyle="italic" fontSize="15px" p="3px" borderRadius="100rem">#{number}</Text>
+        <Flex h="35px" w="100%" justifyContent="space-between" borderTopRadius=".5rem" alignItems="center" p=".8rem">
+          <Heading fontSize="18px" fontWeight="bold">{upperCaseFirstLetter(name)}</Heading>
+          <Text fontStyle="italic" fontSize="15px" p="3px">#{number}</Text>
         </Flex>
         
-        <Flex justifyContent="space-around" mx="1rem" maxH="25px" alignItems="center">
+        <Flex w="100%" justifyContent="space-around" px="1rem" pt=".4rem" maxH="15px" alignItems="center">
           {types.length >0 && <Text sx={typeStyle} bg={typeColor[types[0].type.name][0]} color={typeColor[types[0].type.name][1]} >{types[0].type.name}</Text>}
           {types.length >1 && <Text sx={typeStyle} bg={typeColor[types[1].type.name][0]} color={typeColor[types[1].type.name][1]}>{types[1].type.name}</Text>}
         </Flex>

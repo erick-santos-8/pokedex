@@ -6,7 +6,7 @@ import { Box, Text } from '@chakra-ui/react'
 function App() {
 
   return (
-    <Box>
+    <Box display="flex" flexDirection="column" alignItems="center">
       <NavBar/>
       <Outlet/>
     </Box>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import PokemonCard from '../components/PokemonCard';
-import { Box, Heading, Wrap } from '@chakra-ui/react';
+import { Box, Button, Heading, Wrap } from '@chakra-ui/react';
 
 
 import "../App.css"
@@ -27,13 +27,13 @@ const Home = () => {
       setOffset(offset+20)
     }
   return (
-    <Box bg="#f6f6f6" display="flex" flexDirection="column" alignItems="center">
+    <Box bg="#f9f9f9" display="flex" flexDirection="column" alignItems="center" justifyContent="center" w="1300px">
       <Heading>Pokemons</Heading>
         <Wrap padding="1rem" borderRadius=".5rem" justify="center">
           {firstPokemons.length === 0 && <p>Carregando...</p>}
           {firstPokemons.length > 0 && firstPokemons.map((nameAndUrl) => <PokemonCard key={nameAndUrl.name} name={nameAndUrl.name}/>)}
         </Wrap>
-        <button onClick={changeShow} className='button'>More</button>
+        <Button colorScheme="blue" onClick={changeShow} mb="2rem">More</Button>
     </Box>
     
   )

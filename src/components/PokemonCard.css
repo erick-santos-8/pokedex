@@ -1,7 +1,9 @@
 .button-card{
     cursor: pointer;
     width: 180px;
-    height: 235px;
+    height: 215px;
+    display: flex;
+    flex-direction: column;
     border-radius: .5rem;
     border: none;
     background-color: transparent;
