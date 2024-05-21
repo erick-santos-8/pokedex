@@ -2,6 +2,7 @@ import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react';
 import { useEffect, useState } from 'react'
 
 import "./PokemonCard.css"
+import { Link } from 'react-router-dom';
 
 const typeColor = {
   "bug": ["#53b339", "black"],
@@ -76,7 +77,7 @@ const PokemonCard = ({name}) => {
 
   return (
     <Box  h="215px" w="180px" mb="2rem" borderRadius=".5rem" bg="#fff">
-      <button className={`button-card ${types[0] && types[0].type.name }-hover`}>
+      <Link className={`button-card ${types[0] && types[0].type.name }-hover`} to={`/pokemon/${number}`} >
         <Box  h="150px" w="180px" alignContent="baseline" alignItems="baseline" display="flex" flexDirection="column" padding=".55rem"  bg="#fff" borderTopRadius=".5rem">
           <Image src={photoUrl} alt={name} w="100%" maxBlockSize="100%"/>
         </Box>
@@ -90,7 +91,7 @@ const PokemonCard = ({name}) => {
           {types.length >0 && <Text sx={typeStyle} bg={typeColor[types[0].type.name][0]} color={typeColor[types[0].type.name][1]} >{types[0].type.name}</Text>}
           {types.length >1 && <Text sx={typeStyle} bg={typeColor[types[1].type.name][0]} color={typeColor[types[1].type.name][1]}>{types[1].type.name}</Text>}
         </Flex>
-      </button>         
+      </Link>         
     </Box>
   )
 }
