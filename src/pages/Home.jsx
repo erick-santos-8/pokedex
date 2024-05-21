@@ -27,7 +27,7 @@ const Home = () => {
       setOffset(offset+20)
     }
   return (
-    <Box bg="#f9f9f9" display="flex" flexDirection="column" alignItems="center" justifyContent="center" w="1300px">
+    <Box bg="WhiteAlpha.900" display="flex" flexDirection="column" alignItems="center" justifyContent="center" w="1300px">
       <Heading>Pokemons</Heading>
         <Wrap padding="1rem" borderRadius=".5rem" justify="center">
           {firstPokemons.length === 0 && <p>Carregando...</p>}
