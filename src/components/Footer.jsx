@@ -1,6 +1,4 @@
-import { Box, Button, Flex, Text } from '@chakra-ui/react'
-import { transform } from 'framer-motion'
-import React from 'react'
+import { Button, Flex, Text } from '@chakra-ui/react'
 import { MdOutlineCatchingPokemon } from 'react-icons/md'
 
 const Footer = () => {
