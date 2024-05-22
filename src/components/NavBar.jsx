@@ -7,7 +7,9 @@ import { BiSearchAlt } from "react-icons/bi";
 const NavBar = () => {
   return (
     <Flex h="60px" maxH="60px" align="center" px="2rem" w="1350px" backgroundColor="WhiteAlpha.700" boxShadow="xs">
-        <Button leftIcon={<MdOutlineCatchingPokemon size="40px"/>}color="blue.500" border="none" variant="ghost" _hover={{color:"#1d5ab5"}} fontSize="24px" cursor="pointer" iconSpacing="1px" fontWeight="bold" fontFamily="Quantico">GreatPokedex!</Button>
+        <Link to="/">
+            <Button leftIcon={<MdOutlineCatchingPokemon size="40px"/>}color="blue.500" border="none" variant="ghost" _hover={{color:"blue.600"}} fontSize="24px" cursor="pointer" iconSpacing="1px" fontWeight="bold" fontFamily="Quantico">GreatPokedex!</Button>
+        </Link>
         <Spacer/>
         <InputGroup w="500px">
             <Input type='text' placeholder='Search a pokemon' size="md" focusBorderColor="blue.500" borderRightRadius="none"/>
