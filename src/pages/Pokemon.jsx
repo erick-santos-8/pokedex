@@ -1,12 +1,14 @@
-import { Box, Flex, Heading, Image, ListItem, Text, UnorderedList } from "@chakra-ui/react"
+import { Box, Flex, Heading, Image, ListItem, Progress, UnorderedList } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import StatsBar from "../components/StatsBar"
 
 
 const Pokemon = () => {
   const {id} = useParams()
   const [data, setData] = useState([])
   const [image, setImage] = useState("")
+  const [stats, setStats] = useState([])
 
   const getPokemonDetails = async(url) =>{
     const res = await fetch(url);
@@ -14,19 +16,13 @@ const Pokemon = () => {
 
     setData(data);
     setImage(data.sprites.other.dream_world.front_default)
+    setStats(data.stats)
   }
 
   useEffect(()=> {
     getPokemonDetails(`https://pokeapi.co/api/v2/pokemon/${id}`)
   }, [id])
 
-  function heightAdjust(height){
-    return height/10
-  }
-
-  function weightAdjust(weight){
-    return weight/10
-  }
   return (
     <Flex flexDirection="column" my="2rem" justifyContent="center" alignItems="center">
       <Heading mb="1rem">{data.name}</Heading>
@@ -38,13 +34,14 @@ const Pokemon = () => {
           <UnorderedList>
             <ListItem>Id: #{data.order}</ListItem>
             <ListItem>Base experience: {data.base_experience}xp</ListItem>
-            <ListItem>Height: {heightAdjust(data.height)}m</ListItem>
-            <ListItem>Weight: {weightAdjust(data.weight)}kg</ListItem>
+            <ListItem>Height: {data.height/10}m</ListItem>
+            <ListItem>Weight: {data.weight/10}kg</ListItem>
           </UnorderedList>
-          <Text></Text>
+          <Flex flexDirection="column" h="400px">
+            {stats.length > 0 && stats.map((category) => <StatsBar key={`${id}${category.stat.name}${category.base_stat}`}type={category.stat} value={category.base_stat}/>)}
+          </Flex>
         </Flex>
       </Flex>
-
     </Flex>
   )
 }
