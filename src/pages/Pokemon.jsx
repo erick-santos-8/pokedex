@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Image, ListItem, Progress, UnorderedList } from "@chakra-ui/react"
+import { Box, Flex, Heading, Image, ListItem, Progress, Text, UnorderedList } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import StatsBar from "../components/StatsBar"
@@ -24,14 +24,15 @@ const Pokemon = () => {
   }, [id])
 
   return (
-    <Flex flexDirection="column" my="2rem" justifyContent="center" alignItems="center">
+    <Flex flexDirection="column" my="2rem" justifyContent="center" alignItems="center" w="100%">
       <Heading mb="1rem">{data.name}</Heading>
       <Flex flexDirection="row" justifyContent="space-between">
         <Box h="400px" w="300px" boxShadow="xs" rounded="md">
           <Image src={image} h="100%" w="100%" p="1rem"/>
         </Box>
-        <Flex flexDirection="column">
-          <UnorderedList>
+        <Flex flexDirection="column" ml="3rem">
+          <UnorderedList fontSize="18px" listStyleType="none" w="250px" h="150px" border="solid 1px red" borderRadius=".5rem"p=".5rem">
+            <Text fontWeight="bold" fontSize="20px" display="flex" justifyContent="center">Details</Text>
             <ListItem>Id: #{data.order}</ListItem>
             <ListItem>Base experience: {data.base_experience}xp</ListItem>
             <ListItem>Height: {data.height/10}m</ListItem>
